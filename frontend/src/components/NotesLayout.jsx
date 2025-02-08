@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NoteForm from "./NoteForm";
 import NoteCard from "./NoteCard";
-const API_BASE_URL = "http://localhost:5000/api/notes";
+const API_BASE_URL = "https://notesapp-r780.onrender.com/api/notes";
 
 const NotesLayout = () => {
   const [notes, setNotes] = useState([]); // State For storing all the notes in an array format....
@@ -29,7 +29,7 @@ const NotesLayout = () => {
     try {
       const noteId = notes[editingNote]._id;
       const response = await axios.put(
-        `http://localhost:5000/api/notes/${noteId}`,
+        `https://notesapp-r780.onrender.com/api/notes/${noteId}`,
         noteData
       );
 
@@ -65,7 +65,7 @@ const NotesLayout = () => {
   const handleDelete = async (index) => {
     try {
       const noteId = notes[index]._id;
-      await axios.delete(`http://localhost:5000/api/notes/${noteId}`);
+      await axios.delete(`https://notesapp-r780.onrender.com/api/notes/${noteId}`);
       setNotes(notes.filter((_, i) => i !== index));
     } catch (error) {
       console.error("Error while deleting note", error);
