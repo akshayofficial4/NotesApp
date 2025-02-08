@@ -29,7 +29,7 @@ const NotesLayout = () => {
     try {
       const noteId = notes[editingNote]._id;
       const response = await axios.put(
-        `https://notesapp-r780.onrender.com/api/notes/${noteId}`,
+        `${API_BASE_URL}/${noteId}`,
         noteData
       );
 
@@ -65,7 +65,7 @@ const NotesLayout = () => {
   const handleDelete = async (index) => {
     try {
       const noteId = notes[index]._id;
-      await axios.delete(`https://notesapp-r780.onrender.com/api/notes/${noteId}`);
+      await axios.delete(`${API_BASE_URL}/${noteId}`);
       setNotes(notes.filter((_, i) => i !== index));
     } catch (error) {
       console.error("Error while deleting note", error);
